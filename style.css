@@ -9,6 +9,22 @@
   html {
     scroll-behavior: smooth;
   }
+
+  @font-face {
+    font-family: "Amatic SC";
+    src: url("assets/fonts/AmaticSC-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Amatic SC";
+    src: url("assets/fonts/AmaticSC-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
   
   /* ✅ Theme variables controlled via data-theme */
   :root {
@@ -77,9 +93,13 @@
   }
   
   h1 {
-    font-size: 3rem;
-    letter-spacing: 0.4rem;
-  }
+    font-family: "Amatic SC", "Courier New", monospace;
+    font-weight: 700;          /* Use bold version */
+    font-size: 4rem;           /* Slightly larger for logo feel */
+    letter-spacing: 0.35rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }  
   
   .subtitle {
     margin-top: 0.5rem;

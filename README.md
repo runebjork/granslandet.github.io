@@ -27,9 +27,20 @@ You can preview the site locally by opening `index.html` in a browser.
 
 ---
 
+## ✒️ Fonts
+
+**Font used:** [Amatic SC](https://fonts.google.com/specimen/Amatic+SC)  
+**License:** SIL Open Font License 1.1 (see `assets/fonts/OFL.txt`)
+
+Amatic SC is © Vernon Adams, distributed under the SIL OFL v1.1.  
+You are free to use, modify, and redistribute it under the same license terms.
+
+---
+
 ## ⚖️ License
 
-This project is licensed under the MIT License
+All code in this repository is provided under the [MIT License](./LICENSE).  
+The included fonts (`AmaticSC-Regular.ttf`, `AmaticSC-Bold.ttf`) are licensed separately under the SIL OFL 1.1.
 
 ---
 
