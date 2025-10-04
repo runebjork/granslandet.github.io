@@ -45,7 +45,6 @@
     --shadow-dark: rgba(255, 255, 255, 0.05);
   }
   
-  /* Active theme values (based on data-theme) */
   html[data-theme="light"] {
     --bg: var(--bg-light);
     --text: var(--text-light);
@@ -83,7 +82,7 @@
   
   header h1 {
     font-family: "Amatic SC", "Courier New", monospace;
-    font-weight: 700; /* Bold version */
+    font-weight: 700;
     font-size: 4rem;
     letter-spacing: 0.35rem;
     margin-bottom: 0.5rem;
@@ -128,7 +127,7 @@
   .intro {
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 5rem;
   }
   
   .services {
@@ -136,7 +135,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
   }
   
   .service-btn {
@@ -166,7 +165,7 @@
   
   .scroll-hint {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
     font-size: 0.9rem;
     opacity: 1;
     transition: opacity 0.6s ease-out;
@@ -185,27 +184,39 @@
   .details,
   .referenser {
     max-width: 700px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 6rem; /* ✅ more space between sections */
   }
   
+  /* ============================
+     FADE-IN HEADERS + CONTENT
+     ============================ */
+  .details h2,
+  .details p,
+  .referenser h2,
+  .referenser ul {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  }
+  
+  .details h2.visible,
+  .details p.visible,
+  .referenser h2.visible,
+  .referenser ul.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Adjust section spacing */
   .details h2 {
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
     border-bottom: 1px solid var(--text);
   }
-
-  .details h2,
-.referenser h2 {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.details h2.visible,
-.referenser h2.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+  
+  .details p {
+    margin-bottom: 3rem;
+  }
   
   .referenser ul {
     margin-top: 1rem;

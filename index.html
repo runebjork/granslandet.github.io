@@ -82,11 +82,11 @@
   </section>
 
   <section class="referenser">
-    <h2>Referenser</h2>
+    <h2>Referenser <b>(WIP)</b> </h2>
     <ul>
-      <li>Project Alpha – BIM coordination for multi-use complex</li>
-      <li>Project Beta – Automation setup for Revit workflows</li>
-      <li>Project Gamma – 4D model integration with construction schedule</li>
+      <li>Project Alpha – </li>
+      <li>Project Beta – </li>
+      <li>Project Gamma – </li>
     </ul>
   </section>
 
@@ -154,8 +154,10 @@
       }
     });
   
-    // Fade in h2 headers when they enter the viewport
-    const headers = document.querySelectorAll(".details h2, .referenser h2");
+    // Fade in headers + paragraphs + reference list
+    const fadeElements = document.querySelectorAll(
+      ".details h2, .details p, .referenser h2, .referenser ul"
+    );
   
     const observer = new IntersectionObserver(
       (entries) => {
@@ -165,10 +167,11 @@
           }
         });
       },
-      { threshold: 0.2 } // 20% of header visible before animation triggers
+      { threshold: 0.2 }
     );
   
-    headers.forEach((h2) => observer.observe(h2));
-  </script> 
+    fadeElements.forEach((el) => observer.observe(el));
+  </script>
+  
 </body>
 </html>
