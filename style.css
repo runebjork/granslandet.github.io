@@ -1,15 +1,19 @@
-/* Reset */
-* {
+/* ============================
+   RESET & GLOBAL SETTINGS
+   ============================ */
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  /* ✅ Global smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
-
+  
+  /* ============================
+     FONT: Amatic SC
+     ============================ */
   @font-face {
     font-family: "Amatic SC";
     src: url("assets/fonts/AmaticSC-Regular.ttf") format("truetype");
@@ -26,7 +30,9 @@
     font-display: swap;
   }
   
-  /* ✅ Theme variables controlled via data-theme */
+  /* ============================
+     THEME VARIABLES
+     ============================ */
   :root {
     --bg-light: #fafafa;
     --text-light: #111;
@@ -39,7 +45,7 @@
     --shadow-dark: rgba(255, 255, 255, 0.05);
   }
   
-  /* ✅ Theme switching */
+  /* Active theme values (based on data-theme) */
   html[data-theme="light"] {
     --bg: var(--bg-light);
     --text: var(--text-light);
@@ -54,6 +60,9 @@
     --shadow: var(--shadow-dark);
   }
   
+  /* ============================
+     BODY
+     ============================ */
   body {
     font-family: "Courier New", monospace;
     line-height: 1.6;
@@ -64,7 +73,31 @@
     position: relative;
   }
   
-  /* ✅ Floating theme toggle button */
+  /* ============================
+     HEADER
+     ============================ */
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  header h1 {
+    font-family: "Amatic SC", "Courier New", monospace;
+    font-weight: 700; /* Bold version */
+    font-size: 4rem;
+    letter-spacing: 0.35rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  header .subtitle {
+    font-family: "Courier New", monospace;
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+  
+  /* ============================
+     THEME TOGGLE BUTTON
+     ============================ */
   #theme-toggle {
     position: fixed;
     top: 1rem;
@@ -76,8 +109,12 @@
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1.2rem;
+    color: var(--text);
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   #theme-toggle:hover {
@@ -85,28 +122,9 @@
     box-shadow: 0 1px 3px var(--shadow);
   }
   
-  /* The rest is unchanged from before... */
-  
-  header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  h1 {
-    font-family: "Amatic SC", "Courier New", monospace;
-    font-weight: 700;          /* Use bold version */
-    font-size: 4rem;           /* Slightly larger for logo feel */
-    letter-spacing: 0.35rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }  
-  
-  .subtitle {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    opacity: 0.8;
-  }
-  
+  /* ============================
+     CONTENT SECTIONS
+     ============================ */
   .intro {
     text-align: center;
     max-width: 600px;
@@ -159,7 +177,7 @@
   }
   
   .details,
-  .references {
+  .referenser {
     max-width: 700px;
     margin: 0 auto 4rem;
   }
@@ -170,16 +188,19 @@
     border-bottom: 1px solid var(--text);
   }
   
-  .references ul {
+  .referenser ul {
     margin-top: 1rem;
     list-style: none;
   }
   
-  .references li {
+  .referenser li {
     border-bottom: 1px dashed var(--text);
     padding: 0.5rem 0;
   }
   
+  /* ============================
+     FOOTER
+     ============================ */
   footer {
     text-align: center;
     font-size: 0.9rem;
