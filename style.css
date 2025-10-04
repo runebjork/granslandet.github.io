@@ -168,7 +168,13 @@
     text-align: center;
     margin-bottom: 4rem;
     font-size: 0.9rem;
-    opacity: 0.7;
+    opacity: 1;
+    transition: opacity 0.6s ease-out;
+    position: relative;
+  }
+  
+  .scroll-hint.fade-out {
+    opacity: 0;
   }
   
   .arrow {
@@ -187,6 +193,19 @@
     margin-bottom: 0.5rem;
     border-bottom: 1px solid var(--text);
   }
+
+  .details h2,
+.referenser h2 {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.details h2.visible,
+.referenser h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
   
   .referenser ul {
     margin-top: 1rem;

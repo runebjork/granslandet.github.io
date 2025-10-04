@@ -134,5 +134,41 @@
       setTheme(current === "dark" ? "light" : "dark");
     });
   </script>
+
+<script>
+    const scrollHint = document.querySelector(".scroll-hint");
+  
+    // Fade out scroll-hint while scrolling
+    window.addEventListener("scroll", () => {
+      const fadeStart = 100;
+      const fadeEnd = 300;
+      const scrollY = window.scrollY;
+  
+      if (scrollY < fadeStart) {
+        scrollHint.style.opacity = 1;
+      } else if (scrollY > fadeEnd) {
+        scrollHint.style.opacity = 0;
+      } else {
+        scrollHint.style.opacity =
+          1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+      }
+    });
+  
+    // Fade in h2 headers when they enter the viewport
+    const headers = document.querySelectorAll(".details h2, .referenser h2");
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 } // 20% of header visible before animation triggers
+    );
+  
+    headers.forEach((h2) => observer.observe(h2));
+  </script> 
 </body>
 </html>
