@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto"> <!-- ✅ Added data-theme -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gränslandet – BIM Consultancy</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" />
 </head>
 <body>
+  <!-- ✅ Theme toggle button -->
+  <button id="theme-toggle" aria-label="Toggle dark/light mode">☀️</button>
+
   <header>
     <h1>GRÄNSLANDET</h1>
     <p class="subtitle">Consultancy in BIM for Architecture & Construction</p>
@@ -21,23 +23,24 @@
     </p>
   </section>
 
+  <!-- ✅ Each button now links to a section -->
   <section class="services">
-    <div class="service-btn">
+    <a class="service-btn" href="#bim-coordination">
       <div class="icon">⬜</div>
       <h3>BIM Coordination</h3>
-    </div>
-    <div class="service-btn">
+    </a>
+    <a class="service-btn" href="#model-management">
       <div class="icon">⬜</div>
       <h3>Model Management</h3>
-    </div>
-    <div class="service-btn">
+    </a>
+    <a class="service-btn" href="#workflow-automation">
       <div class="icon">⬜</div>
       <h3>Workflow Automation</h3>
-    </div>
-    <div class="service-btn">
+    </a>
+    <a class="service-btn" href="#visualization">
       <div class="icon">⬜</div>
       <h3>Visualization</h3>
-    </div>
+    </a>
   </section>
 
   <section class="scroll-hint">
@@ -45,25 +48,26 @@
     <div class="arrow">↓</div>
   </section>
 
+  <!-- ✅ Added IDs for scroll targets -->
   <section class="details">
-    <h2>BIM Coordination</h2>
+    <h2 id="bim-coordination">BIM Coordination</h2>
     <p>
       Assistance with clash detection, interdisciplinary collaboration, and streamlined
       information flow throughout project stages.
     </p>
 
-    <h2>Model Management</h2>
+    <h2 id="model-management">Model Management</h2>
     <p>
       Setting up and maintaining consistent BIM structures for architectural and construction
       projects.
     </p>
 
-    <h2>Workflow Automation</h2>
+    <h2 id="workflow-automation">Workflow Automation</h2>
     <p>
       Custom scripts and tools to optimize repetitive tasks and improve project efficiency.
     </p>
 
-    <h2>Visualization</h2>
+    <h2 id="visualization">Visualization</h2>
     <p>
       Producing 3D and 4D visualizations to communicate complex ideas clearly.
     </p>
@@ -82,5 +86,45 @@
     <p>Contact: <a href="mailto:rune@granslandet.se">rune@granslandet.se</a></p>
     <p><a href="#top">Back to top ↑</a></p>
   </footer>
+
+  <!-- ✅ Added script for smooth scroll + theme toggle -->
+  <script>
+    // Smooth scroll effect
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+
+    // Theme toggle logic
+    const html = document.documentElement;
+    const toggleBtn = document.getElementById("theme-toggle");
+
+    function setTheme(theme) {
+      html.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+      toggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
+    }
+
+    // Initialize theme from localStorage or system preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+
+    // Toggle when clicking the button
+    toggleBtn.addEventListener("click", () => {
+      const current = html.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+  </script>
 </body>
 </html>

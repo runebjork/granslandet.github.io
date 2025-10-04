@@ -5,11 +5,39 @@
     box-sizing: border-box;
   }
   
+  /* ✅ Global smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
   
-  /* Light / Dark Mode */
+  /* ✅ Theme variables controlled via data-theme */
+  :root {
+    --bg-light: #fafafa;
+    --text-light: #111;
+    --card-light: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.2);
+  
+    --bg-dark: #111;
+    --text-dark: #eee;
+    --card-dark: #1a1a1a;
+    --shadow-dark: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* ✅ Theme switching */
+  html[data-theme="light"] {
+    --bg: var(--bg-light);
+    --text: var(--text-light);
+    --card-bg: var(--card-light);
+    --shadow: var(--shadow-light);
+  }
+  
+  html[data-theme="dark"] {
+    --bg: var(--bg-dark);
+    --text: var(--text-dark);
+    --card-bg: var(--card-dark);
+    --shadow: var(--shadow-dark);
+  }
+  
   body {
     font-family: "Courier New", monospace;
     line-height: 1.6;
@@ -17,27 +45,32 @@
     color: var(--text);
     transition: background-color 0.4s, color 0.4s;
     padding: 2rem;
+    position: relative;
   }
   
-  @media (prefers-color-scheme: light) {
-    :root {
-      --bg: #fafafa;
-      --text: #111;
-      --card-bg: #fff;
-      --shadow: rgba(0, 0, 0, 0.2);
-    }
+  /* ✅ Floating theme toggle button */
+  #theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--card-bg);
+    border: 2px solid var(--text);
+    border-radius: 50%;
+    box-shadow: 0 3px 6px var(--shadow);
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
   
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #111;
-      --text: #eee;
-      --card-bg: #1a1a1a;
-      --shadow: rgba(255, 255, 255, 0.05);
-    }
+  #theme-toggle:hover {
+    transform: translateY(2px);
+    box-shadow: 0 1px 3px var(--shadow);
   }
   
-  /* Typography & Layout */
+  /* The rest is unchanged from before... */
+  
   header {
     text-align: center;
     margin-bottom: 3rem;
@@ -69,6 +102,9 @@
   }
   
   .service-btn {
+    display: block;
+    text-decoration: none;
+    color: inherit;
     background: var(--card-bg);
     border: 2px solid var(--text);
     border-radius: 0.5rem;
@@ -102,7 +138,8 @@
     margin-top: 0.5rem;
   }
   
-  .details {
+  .details,
+  .references {
     max-width: 700px;
     margin: 0 auto 4rem;
   }
@@ -111,11 +148,6 @@
     margin-top: 2rem;
     margin-bottom: 0.5rem;
     border-bottom: 1px solid var(--text);
-  }
-  
-  .references {
-    max-width: 700px;
-    margin: 0 auto 4rem;
   }
   
   .references ul {
