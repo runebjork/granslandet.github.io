@@ -345,8 +345,4 @@
     opacity: 0.8;
   }
 
-  /* Default link blue is unreadable on the dark background */
-  footer a {
-    color: inherit;
-  }
   
