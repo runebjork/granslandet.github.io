@@ -163,6 +163,45 @@
     margin-bottom: 0.5rem;
   }
   
+  /* ============================
+     CV / PORTFOLIO PILL
+     ============================ */
+  .portfolio-link {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "Courier New", monospace;
+    font-size: 1rem;
+    text-decoration: none;
+    color: inherit;
+    background: var(--card-bg);
+    border: 2px solid var(--text);
+    border-radius: 999px;
+    box-shadow: 0 4px 8px var(--shadow);
+    padding: 0.75rem 1.75rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .pill-btn:hover,
+  .pill-btn:focus-visible {
+    transform: translateY(3px);
+    box-shadow: 0 2px 4px var(--shadow);
+  }
+
+  .pill-icon {
+    font-size: 1.2rem;
+  }
+
+  .pill-arrow {
+    opacity: 0.7;
+  }
+
   .scroll-hint {
     text-align: center;
     margin-bottom: 5rem;
